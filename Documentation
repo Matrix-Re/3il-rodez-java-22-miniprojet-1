@@ -1,0 +1,11 @@
+/* A REVOIR !!! */ : cette ligne de commentaire sera utiliser comme mot clé de
+recherche pour trouver plus facilement le code ou je ne suis pas sûr, 
+bien évidemment cela sera enlever lors de la livraison
+
+-----------------------------------------------------------------
+
+Question : pourquoi l'attribut graine est-il en final ?
+
+L'attribut graine doit être en final car la graine doit être unique elle ne
+pas être modifier ou modifiable, la graine et le code qui permet de générer le
+bruit si la graine change le bruit change également
