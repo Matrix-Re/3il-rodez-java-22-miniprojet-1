@@ -21,7 +21,7 @@ public class ManipulateurCarte {
      * @return Une instance de Carte chargée à partir du fichier.
      */
     public static Carte chargerCarte(String cheminFichier) {
-        return new Carte(Utils.lireContenuFichier(cheminFichier));
+        return null;//new Carte(Utils.lireContenuFichier(cheminFichier));
     }
     
     /**

@@ -9,13 +9,13 @@ import java.util.Random;
 public class BruitAleatoire extends Bruit2D {
 
     public BruitAleatoire(long graine, double resolution) {
-        super();
+        super(graine, resolution);
     }
 
     @Override
     public double bruit2D(double x, double y) {
 
-
+        return 0;
     }
 
 }
