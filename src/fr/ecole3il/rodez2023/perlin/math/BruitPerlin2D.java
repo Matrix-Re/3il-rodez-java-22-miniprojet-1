@@ -1,6 +1,8 @@
 package fr.ecole3il.rodez2023.perlin.math;
 
 
+import fr.ecole3il.rodez2023.perlin.Utils;
+
 /**
  * @author philibert roquart, fainéant
  */
@@ -28,7 +30,7 @@ public class BruitPerlin2D extends Bruit2D {
 
 	public BruitPerlin2D(long graine, double resolution) {
 		super(graine, resolution);
-		this.permutation = PERMUTATION;
+		this.permutation = Utils.melanger(PERMUTATION, graine);
 	}
 
 	@Override
@@ -82,6 +84,6 @@ public class BruitPerlin2D extends Bruit2D {
 		tmp = y - y0;
 		Cy = 3 * tmp * tmp - 2 * tmp * tmp * tmp;
 
-		return Li2 + Cy * (Li2 - Li1);
+		return Li1 + Cy * (Li2 - Li1);
 	}
 }
