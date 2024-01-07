@@ -86,19 +86,21 @@ public class VisualiseurCarteTerrain extends JFrame {
 		cartePanel.addMouseMotionListener(new MouseAdapter() {
 		    @Override
 		    public void mouseMoved(MouseEvent e) {
-		        int tuileWidth = cartePanel.getWidth() / carte.getLargeur();
-		        int tuileHeight = cartePanel.getHeight() / carte.getHauteur();
+				if (carte != null || vte != null) {
+					int tuileWidth = cartePanel.getWidth() / carte.getLargeur();
+					int tuileHeight = cartePanel.getHeight() / carte.getHauteur();
 
-		        int x = e.getX() / tuileWidth;
-		        int y = e.getY() / tuileHeight;
+					int x = e.getX() / tuileWidth;
+					int y = e.getY() / tuileHeight;
 
-		        System.out.println("Coordonnées de la souris - X: " + x + ", Y: " + y);
+					System.out.println("Coordonnées de la souris - X: " + x + ", Y: " + y);
 
-		        if (x >= 0 && x < carte.getLargeur() && y >= 0 && y < carte.getHauteur()) {
-		            TypeTerrain type = vte.getTypeTerrain(x, y);
-		            terrainLabel.setText("Terrain: " + type.toString());
-		        }
-		    }
+					if (x >= 0 && x < carte.getLargeur() && y >= 0 && y < carte.getHauteur()) {
+						TypeTerrain type = vte.getTypeTerrain(x, y);
+						terrainLabel.setText("Terrain: " + type.toString());
+					}
+				}
+			}
 
 		    @Override
 		    public void mouseExited(MouseEvent e) {
@@ -109,21 +111,23 @@ public class VisualiseurCarteTerrain extends JFrame {
 		cartePanel.addMouseListener(new MouseAdapter() {
 		    @Override
 		    public void mouseClicked(MouseEvent e) {
-		        int tuileWidth = cartePanel.getWidth() / carte.getLargeur();
-		        int tuileHeight = cartePanel.getHeight() / carte.getHauteur();
+				if (carte != null || vte != null) {
+					int tuileWidth = cartePanel.getWidth() / carte.getLargeur();
+					int tuileHeight = cartePanel.getHeight() / carte.getHauteur();
 
-		        int x = e.getX() / tuileWidth;
-		        int y = e.getY() / tuileHeight;
+					int x = e.getX() / tuileWidth;
+					int y = e.getY() / tuileHeight;
 
-		        if (x >= 0 && x < carte.getLargeur() && y >= 0 && y < carte.getHauteur()) {
+					if (x >= 0 && x < carte.getLargeur() && y >= 0 && y < carte.getHauteur()) {
 
-		            // Crée le contenu à afficher dans la fenêtre modale
-		            String contenu = "Altitude: " + vte.getAltitudeAffichee(x, y) + "\nHydrométrie: " + vte.getHydrometrieAffichee(x, y)+ "\nTempérature: " + vte.getTemperatureAffichee(x, y);
+						// Crée le contenu à afficher dans la fenêtre modale
+						String contenu = "Altitude: " + vte.getAltitudeAffichee(x, y) + "\nHydrométrie: " + vte.getHydrometrieAffichee(x, y) + "\nTempérature: " + vte.getTemperatureAffichee(x, y);
 
-		            // Affiche une fenêtre modale avec les informations de la tuile
-		            JOptionPane.showMessageDialog(cartePanel, contenu, "Informations de la tuile", JOptionPane.INFORMATION_MESSAGE);
-		        }
-		    }
+						// Affiche une fenêtre modale avec les informations de la tuile
+						JOptionPane.showMessageDialog(cartePanel, contenu, "Informations de la tuile", JOptionPane.INFORMATION_MESSAGE);
+					}
+				}
+			}
 		});
 		add(cartePanel, BorderLayout.CENTER);
 
