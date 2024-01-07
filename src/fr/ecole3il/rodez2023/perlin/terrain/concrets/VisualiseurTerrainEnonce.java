@@ -16,16 +16,16 @@ public class VisualiseurTerrainEnonce extends VisualiseurTerrain {
 		return getDt().determinerTerrain(getAltitudeAffichee(x, y),getHydrometrieAffichee(x, y),getTemperatureAffichee(x, y));
 	}
 
-	public int getAltitudeAffichee(int x, int y){
-		return 0;
+	public long getAltitudeAffichee(int x, int y){
+		return getC().getTerrain(x,y).getAltitude();
 	}
 
-	public int getHydrometrieAffichee(int x, int y){
-		return 0;
+	public long getHydrometrieAffichee(int x, int y){
+		return getC().getTerrain(x,y).getHydrometrie();
 	}
 
-	public int getTemperatureAffichee(int x, int y){
-		return 0;
+	public long getTemperatureAffichee(int x, int y){
+		return getC().getTerrain(x,y).getTemperature();
 	}
 
 }
