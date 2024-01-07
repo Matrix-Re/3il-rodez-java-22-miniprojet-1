@@ -37,4 +37,6 @@ public abstract class Bruit2D {
         return graine;
     }
 
+    public double getResolution() { return resolution; }
+
 }

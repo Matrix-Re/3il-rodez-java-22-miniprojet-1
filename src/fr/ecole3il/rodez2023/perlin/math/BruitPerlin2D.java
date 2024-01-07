@@ -40,8 +40,8 @@ public class BruitPerlin2D extends Bruit2D {
 		double unit = 1.0f / (double) Math.sqrt(2);
 		double tmp, s, t, u, v, Cx, Cy, Li1, Li2;
 		// Adapter pour la résolution
-		//x /= resolution;
-		//y /= resolution;
+		x /= getResolution();
+		y /= getResolution();
 
 		// Obtenir les coordonnées de la grille associées à (x, y)
 		x0 = (int) (x);
@@ -52,10 +52,10 @@ public class BruitPerlin2D extends Bruit2D {
 		jj = y0 & 255;
 
 		// Récupérer les indices de gradient associés aux coins du quadrilatère
-		gi0 = permutation[ii + permutation[jj]] % 8;
-		gi1 = permutation[ii + 1 + permutation[jj]] % 8;
-		gi2 = permutation[ii + permutation[jj + 1]] % 8;
-		gi3 = permutation[ii + 1 + permutation[jj + 1]] % 8;
+		gi0 = permutation[(ii + permutation[jj % 256]) % 256] % 8;
+		gi1 = permutation[((ii + 1) + permutation[jj % 256]) % 256] % 8;
+		gi2 = permutation[(ii + permutation[(jj + 1) % 256]) % 256] % 8;
+		gi3 = permutation[(ii + 1 + permutation[(jj + 1) % 256]) % 256] % 8;
 
 		// Récupérer les vecteurs de gradient et effectuer des interpolations pondérées
 		tempX = x - x0;
