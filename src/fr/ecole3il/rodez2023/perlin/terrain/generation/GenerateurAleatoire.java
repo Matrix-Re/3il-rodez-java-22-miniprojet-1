@@ -12,6 +12,6 @@ public class GenerateurAleatoire extends GenerateurCarte{
 
     @Override
     protected Terrain genererTerrain(int i, int j, int largeur, int hauteur) {
-        return null;
+        return new Terrain(new Random().nextFloat(1),new Random().nextFloat(1),new Random().nextFloat(1));
     }
 }
