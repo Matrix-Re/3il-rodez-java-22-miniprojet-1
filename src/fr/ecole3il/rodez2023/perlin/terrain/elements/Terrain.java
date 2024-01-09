@@ -2,25 +2,26 @@ package fr.ecole3il.rodez2023.perlin.terrain.elements;
 
 public class Terrain {
 
-    private long altitude;
-    private long hydrometrie;
-    private long temperature;
+    private float altitude;
+    private float hydrometrie;
+    private float temperature;
 
-    public Terrain(long altitude, long hydrometrie, long temperature){
+    public Terrain(float altitude, float hydrometrie, float temperature){
+        System.out.println(altitude + " " + hydrometrie + " " + temperature);
         this.altitude = altitude;
         this.hydrometrie = hydrometrie;
         this.temperature = temperature;
     }
 
-    public long getAltitude() {
+    public float getAltitude() {
         return altitude;
     }
 
-    public long getHydrometrie() {
+    public float getHydrometrie() {
         return hydrometrie;
     }
 
-    public long getTemperature() {
+    public float getTemperature() {
         return temperature;
     }
 }
