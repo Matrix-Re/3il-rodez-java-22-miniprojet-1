@@ -10,11 +10,14 @@ public class Carte {
     private int hauteur;
     GenerateurCarte gc;
 
+    Terrain[][] t;
+
     public Carte(String nom, int largeur, int hauteur, GenerateurCarte gc){
         this.nom = nom;
         this.largeur = largeur;
         this.hauteur = hauteur;
         this.gc = gc;
+        t = gc.genererCarte(largeur,hauteur);
     }
 
     public String getNom() {
@@ -30,6 +33,6 @@ public class Carte {
     }
 
     public Terrain getTerrain(int x, int y){
-        return null;
+        return t[x][y];
     }
 }
