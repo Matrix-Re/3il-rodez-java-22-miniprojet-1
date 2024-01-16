@@ -109,6 +109,7 @@ public class VisualiseurBruitPerlin extends JFrame {
             resolution = Float.parseFloat(resolutionField.getText());
         } catch (NumberFormatException e) {
             // Utilise la résolution par défaut si la valeur entrée n'est pas valide
+            System.out.println(e.getMessage() + "\nLa résolution saisie est invalide, utilisation de la résolution par défaut");
         }
 
         noiseImage = new ImageBruit(new BruitPerlin2D(seed,resolution));
