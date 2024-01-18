@@ -3,8 +3,18 @@ package fr.ecole3il.rodez2023.perlin.terrain.concrets;
 import fr.ecole3il.rodez2023.perlin.terrain.elements.TypeTerrain;
 import fr.ecole3il.rodez2023.perlin.terrain.visualisation.DetermineurTerrain;
 
+/**
+ * La classe DetermineurTerrainEnonce permet de determiner le type du terrrain.
+ */
 public class DetermineurTerrainEnonce implements DetermineurTerrain {
 
+	/**
+	 * Determine le type d'un terrain.
+	 * @param altitude Altitude du terrain.
+	 * @param hydrometrie Hydrometrie du terrain.
+	 * @param temperature Temperature du terrain.
+	 * @return TypeTerrain Retourne le type du terrain en fonction des critères spécifiés.
+	 */
 	@Override
 	public TypeTerrain determinerTerrain(double altitude, double hydrometrie, double temperature) {
 		if (altitude < 0) {

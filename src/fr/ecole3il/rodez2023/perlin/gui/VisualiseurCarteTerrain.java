@@ -65,6 +65,10 @@ public class VisualiseurCarteTerrain extends JFrame {
             }
         }
     }
+
+	/**
+	 * Constructeur par défaut pour initialiser la fenêtre et les composants.
+	 */
 	public VisualiseurCarteTerrain() {
 		VisualiseurCarteTerrain monObjet = this;
 		setTitle("Visualiseur de Carte");

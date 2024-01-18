@@ -8,6 +8,11 @@ import java.util.Random;
  */
 public class BruitAleatoire extends Bruit2D {
 
+    /**
+     * Constructeur de la classe RandomNoise2D.
+     * @param graine La graine utilisée pour initialiser le générateur de bruit.
+     * @param resolution La résolution utilisée pour la qualité du bruit
+     */
     public BruitAleatoire(long graine, double resolution) {
         super(graine, resolution);
     }

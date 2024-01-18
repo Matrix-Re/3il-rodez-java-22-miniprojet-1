@@ -28,6 +28,11 @@ public class BruitPerlin2D extends Bruit2D {
 
 	private final int[] permutation;
 
+	/**
+	 * Constructeur de la classe PerlinNoise2D.
+	 * @param graine La graine utilisée pour initialiser le générateur de bruit.
+	 * @param resolution La résolution utilisée pour la qualité du bruit
+	 */
 	public BruitPerlin2D(long graine, double resolution) {
 		super(graine, resolution);
 		this.permutation = Utils.melanger(PERMUTATION, graine);

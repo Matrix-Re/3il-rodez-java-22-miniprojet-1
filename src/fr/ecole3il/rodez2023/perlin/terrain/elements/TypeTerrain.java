@@ -4,9 +4,17 @@ import fr.ecole3il.rodez2023.perlin.Utils;
 
 import java.awt.image.BufferedImage;
 
+/**
+ * Enumération représentant les différents types de terrain possibles.
+ * Chaque type de terrain est associé à une image représentative.
+ */
 public enum TypeTerrain {
     PLAINE, FORET_FEUILLUS, TOUNDRA, FORET_CONIFÈRES, MONTAGNE, DESERT, COLLINES, MARAIS, OCEAN;
 
+    /**
+     * Obtient l'image assiciée au type du terrain.
+     * @return L'image associée au type de terrain.
+     */
     public BufferedImage getImage() {
 
         BufferedImage image = null;

@@ -6,15 +6,30 @@ import fr.ecole3il.rodez2023.perlin.terrain.elements.Terrain;
 
 import java.util.Random;
 
+/**
+ * Classe représentant un générateur de carte basé sur des valeurs réalier avec le bruit de perlin.
+ */
 public class GenerateurPerlin extends GenerateurCarte{
 
     private BruitPerlin2D bp2d;
 
+    /**
+     * Constructeur de la classe GenerateurPerlin.
+     * @param seed Graine pour initialiser la séquence de nombres aléatoires.
+     */
     public GenerateurPerlin(long seed){
         super(new Random().nextLong(seed));
         bp2d = new BruitPerlin2D(getGraine(),1);
     }
 
+    /**
+     * Génère un terrain basé sur le bruit de Perlin pour une position spécifique sur la carte.
+     * @param i       Coordonnée i sur la carte.
+     * @param j       Coordonnée j sur la carte.
+     * @param largeur Largeur de la carte.
+     * @param hauteur Hauteur de la carte.
+     * @return Terrain Terrain généré avec le bruit de Perlin.
+     */
     @Override
     protected Terrain genererTerrain(int i, int j, int largeur, int hauteur) {
 

@@ -10,6 +10,10 @@ import java.io.FileNotFoundException;
 import java.util.Locale;
 import java.util.Scanner;
 
+/**
+ * La classe Carte représente une carte générée en utilisant des générateurs.
+ * Elle possède des getter pour les terrains qui la composes.
+ */
 public class Carte {
     private String nom;
     private int largeur;
@@ -17,6 +21,13 @@ public class Carte {
     GenerateurCarte gc;
     Terrain[][] t;
 
+    /**
+     * Méthode abstraite pour obtenir la valeur de bruit en 2D pour les coordonnées spécifiées.
+     * @param nom Nom de la carte.
+     * @param largeur Largeur de la carte.
+     * @param hauteur Hauteur de la carte.
+     * @param generateurCarte Type de générateur utiliser pour la carte.
+     */
     public Carte(String nom, int largeur, int hauteur, GenerateurCarte generateurCarte){
         this.nom = nom;
         this.largeur = largeur;
@@ -25,6 +36,10 @@ public class Carte {
         t = gc.genererCarte(largeur,hauteur);
     }
 
+    /**
+     * Méthode abstraite pour obtenir la valeur de bruit en 2D pour les coordonnées spécifiées.
+     * @param donneesCarte Données de la carte sous forme de chaine des caractère.
+     */
     public Carte(String donneesCarte){
         Scanner scanner = null;
         try {
@@ -49,18 +64,37 @@ public class Carte {
         }
     }
 
+    /**
+     * Obtient le nom de la carte.
+     * @return Le nom de la carte.
+     */
     public String getNom() {
         return nom;
     }
 
+    /**
+     * Obtient La largeur de la carte.
+     * @return La largeur de la carte.
+     */
     public int getLargeur() {
         return largeur;
     }
 
+    /**
+     * Obtient La hauteur de la carte.
+     * @return La hauteur de la carte.
+     */
     public int getHauteur() {
         return hauteur;
     }
 
+    /**
+     * Obtient Un terrain au coordonnées spécifiées.
+     * @param x Coordonnée en abscisse du terrain.
+     * @param y Coordonnée en ordonnée du terrain.
+     * @return Un terrain de la carte au coordonnées x et y ou null si innexistant.
+     * @throws TerrainInexistant si les coordonnées sont hors des limites du terrain
+     */
     public Terrain getTerrain(int x, int y){
 
         try{
