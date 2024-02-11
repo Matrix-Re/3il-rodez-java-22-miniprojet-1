@@ -1,5 +1,8 @@
 package fr.ecole3il.rodez2023.perlin.terrain.elements;
 
+import fr.ecole3il.rodez2023.perlin.exception.MauvaiseValeurException;
+import fr.ecole3il.rodez2023.perlin.terrain.visualisation.DetermineurTerrain;
+
 /**
  * Représente un terrain et ces caractéristiques.
  * Cette classe est utilisée pour définir les propriétés d'un terrain donné.
@@ -15,12 +18,16 @@ public class Terrain {
      * @param altitude      Altitude du terrain.
      * @param hydrometrie   Hydrométrie du terrain.
      * @param temperature   Température du terrain.
+     * @throws MauvaiseValeurException si les attributs ne sont pas compris dans les bornes
      */
     public Terrain(float altitude, float hydrometrie, float temperature){
-        System.out.println(altitude + " " + hydrometrie + " " + temperature);
         this.altitude = altitude;
         this.hydrometrie = hydrometrie;
         this.temperature = temperature;
+        if (hydrometrie < 0 || hydrometrie > 1 || temperature < 0 || temperature > 1 || altitude < -1 || altitude > 1){
+            System.out.println(altitude + " " + hydrometrie + " " + temperature);
+            throw new MauvaiseValeurException("Les valeurs de hydrométrie, température et altitude doivent respecter les limites.");
+        }
     }
 
     /**
@@ -45,5 +52,9 @@ public class Terrain {
      */
     public float getTemperature() {
         return temperature;
+    }
+
+    public void getTypeTerrain(DetermineurTerrain dt){
+        // visitor.visit(this);
     }
 }
