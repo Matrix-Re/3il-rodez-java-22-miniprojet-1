@@ -51,7 +51,7 @@ public class Carte {
             this.t = new Terrain[this.largeur][this.hauteur];
 
             for (int i = 0; i < largeur; i++)
-                for (int j = 0; j < largeur; j++)
+                for (int j = 0; j < hauteur; j++)
                     this.t[j][i] = new Terrain(scanner.nextFloat(),scanner.nextFloat(),scanner.nextFloat());
 
         } catch (Exception e) {
