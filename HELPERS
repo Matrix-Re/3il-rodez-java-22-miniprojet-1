@@ -7,3 +7,4 @@
 - On à chercher ensemble comment résoudre le problème OutOfBoundsException de que l'on avait avec le générateur de
 perlin cette erreur survenaitde temps en temps en moyenne je dirais une 1/5 puis il trouvé la solutionil fallait changer
 les indice de gradient associés aux coins du quadrilatère
+- ma rappeler que on utilisait java 11

@@ -19,7 +19,7 @@ public class BruitAleatoire extends Bruit2D {
 
     @Override
     public double bruit2D(double x, double y) {
-        return new Random().nextDouble(getGraine());
+        return new Random(getGraine()).nextDouble();
     }
 
 }

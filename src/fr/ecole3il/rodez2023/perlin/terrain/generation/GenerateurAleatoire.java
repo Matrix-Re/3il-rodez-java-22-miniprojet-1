@@ -14,7 +14,7 @@ public class GenerateurAleatoire extends GenerateurCarte{
      * @param seed Graine pour initialiser la séquence de nombres aléatoires.
      */
     public GenerateurAleatoire(long seed){
-        super(new Random().nextLong(seed));
+        super(new Random(seed).nextLong());
     }
 
     /**
@@ -27,6 +27,6 @@ public class GenerateurAleatoire extends GenerateurCarte{
      */
     @Override
     protected Terrain genererTerrain(int i, int j, int largeur, int hauteur) {
-        return new Terrain(new Random().nextFloat(1) * 2 - 1,new Random().nextFloat(1),new Random().nextFloat(1));
+        return new Terrain(new Random(1).nextFloat() * 2 - 1,new Random(1).nextFloat(),new Random(1).nextFloat());
     }
 }

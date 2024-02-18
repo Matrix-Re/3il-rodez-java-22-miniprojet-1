@@ -18,7 +18,7 @@ public class GenerateurPerlin extends GenerateurCarte{
      * @param seed Graine pour initialiser la séquence de nombres aléatoires.
      */
     public GenerateurPerlin(long seed){
-        super(new Random().nextLong(seed));
+        super(new Random(seed).nextLong());
         bp2d = new BruitPerlin2D(getGraine(),1);
     }
 
