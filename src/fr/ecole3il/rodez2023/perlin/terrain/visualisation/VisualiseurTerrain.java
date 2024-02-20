@@ -7,7 +7,7 @@ import fr.ecole3il.rodez2023.perlin.terrain.concrets.DetermineurTerrainEnonce;
  * Classe représentant un visualiseur de terrain.
  * Ce visualiseur utilise un détermineur de terrain spécifique et une carte pour afficher les informations de terrain.
  */
-public class VisualiseurTerrain {
+public abstract class VisualiseurTerrain {
 
     private DetermineurTerrainEnonce dt;
     private Carte c;
