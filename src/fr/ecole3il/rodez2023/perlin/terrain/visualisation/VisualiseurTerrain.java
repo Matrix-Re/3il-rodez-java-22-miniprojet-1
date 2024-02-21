@@ -2,6 +2,8 @@ package fr.ecole3il.rodez2023.perlin.terrain.visualisation;
 
 import fr.ecole3il.rodez2023.perlin.terrain.carte.Carte;
 import fr.ecole3il.rodez2023.perlin.terrain.concrets.DetermineurTerrainEnonce;
+import fr.ecole3il.rodez2023.perlin.terrain.elements.Terrain;
+import fr.ecole3il.rodez2023.perlin.terrain.elements.TypeTerrain;
 
 /**
  * Classe représentant un visualiseur de terrain.
@@ -9,8 +11,8 @@ import fr.ecole3il.rodez2023.perlin.terrain.concrets.DetermineurTerrainEnonce;
  */
 public abstract class VisualiseurTerrain {
 
-    private DetermineurTerrainEnonce dt;
-    private Carte c;
+    protected DetermineurTerrainEnonce dt;
+    protected Carte c;
 
     /**
      * Constructeur de la classe VisualiseurTerrain.
@@ -23,34 +25,91 @@ public abstract class VisualiseurTerrain {
     }
 
     /**
-     * Obtient le détermineur de terrain utilisé par le visualiseur.
-     * @return DetermineurTerrainEnonce Le détermineur de terrain.
+     * Obtient l'altitude affichée pour une position spécifique sur la carte.
+     * @param x Coordonnée x sur la carte.
+     * @param y Coordonnée y sur la carte.
+     * @return Altitude du terrain.
      */
-    public DetermineurTerrainEnonce getDt() {
-        return dt;
+    public AltitudeAffichee getAltitudeAffichee(int x, int y){
+        AltitudeAffichee resultat = null;
+
+        TypeTerrain typeT = getTypeTerrain(x, y);
+
+        if (TypeTerrain.OCEAN.equals(typeT))
+        {
+            resultat = AltitudeAffichee.Basse;
+        }
+        if (TypeTerrain.PLAINE.equals(typeT) || TypeTerrain.FORET_FEUILLUS.equals(typeT) || TypeTerrain.TOUNDRA.equals(typeT))
+        {
+            resultat = AltitudeAffichee.Moyenne;
+        }
+        if (TypeTerrain.DESERT.equals(typeT) || TypeTerrain.COLLINES.equals(typeT) || TypeTerrain.MONTAGNE.equals(typeT))
+        {
+            resultat = AltitudeAffichee.Elevee;
+        }
+
+        return resultat;
     }
 
     /**
-     * Définit le détermineur de terrain à utiliser par le visualiseur.
-     * @param dt Nouveau détermineur de terrain.
+     * Obtient l'hydrométrie affichée pour une position spécifique sur la carte.
+     * @param x Coordonnée x sur la carte.
+     * @param y Coordonnée y sur la carte.
+     * @return Hydrométrie du terrain.
      */
-    public void setDt(DetermineurTerrainEnonce dt) {
-        this.dt = dt;
+    public HydrometrieAffichee getHydrometrieAffichee(int x, int y){
+        HydrometrieAffichee resultat = null;
+
+        TypeTerrain typeT = getTypeTerrain(x, y);
+
+        if (TypeTerrain.DESERT.equals(typeT) || TypeTerrain.MARAIS.equals(typeT))
+        {
+            resultat = HydrometrieAffichee.Sec;
+        }
+        if (TypeTerrain.PLAINE.equals(typeT) || TypeTerrain.FORET_CONIFÈRES.equals(typeT))
+        {
+            resultat = HydrometrieAffichee.Moyen;
+        }
+        if (TypeTerrain.COLLINES.equals(typeT) || TypeTerrain.FORET_CONIFÈRES.equals(typeT))
+        {
+            resultat = HydrometrieAffichee.Humide;
+        }
+
+        return resultat;
     }
 
     /**
-     * Obtient la carte associée au visualiseur.
-     * @return Carte La carte à visualiser.
+     * Obtient la température affichée pour une position spécifique sur la carte.
+     * @param x Coordonnée x sur la carte.
+     * @param y Coordonnée y sur la carte.
+     * @return Température du terrain.
      */
-    public Carte getC() {
-        return c;
+    public TempératureAffichee getTemperatureAffichee(int x, int y){
+        TempératureAffichee resultat = null;
+
+        TypeTerrain typeT = getTypeTerrain(x, y);
+
+        if (TypeTerrain.DESERT.equals(typeT) || TypeTerrain.MARAIS.equals(typeT))
+        {
+            resultat = TempératureAffichee.Froid;
+        }
+        if (TypeTerrain.PLAINE.equals(typeT) || TypeTerrain.FORET_CONIFÈRES.equals(typeT))
+        {
+            resultat = TempératureAffichee.Tempéré;
+        }
+        if (TypeTerrain.COLLINES.equals(typeT) || TypeTerrain.FORET_CONIFÈRES.equals(typeT))
+        {
+            resultat = TempératureAffichee.Chaud;
+        }
+
+        return resultat;
     }
 
     /**
-     * Définit la carte à visualiser pour le visualiseur.
-     * @param c Nouvelle carte à visualiser.
+     * Obtient le type de terrain pour une position spécifique sur la carte.
+     * @param x Coordonnée x sur la carte.
+     * @param y Coordonnée y sur la carte.
+     * @return TypeTerrain Type de terrain déterminé.
      */
-    public void setC(Carte c) {
-        this.c = c;
-    }
+    public abstract  TypeTerrain getTypeTerrain(int x, int y);
 }
