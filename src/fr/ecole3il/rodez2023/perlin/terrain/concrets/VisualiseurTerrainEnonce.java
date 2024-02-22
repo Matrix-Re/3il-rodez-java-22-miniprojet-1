@@ -20,9 +20,12 @@ public class VisualiseurTerrainEnonce extends VisualiseurTerrain {
 		super(new DetermineurTerrainEnonce(), c);
 	}
 
+	@Override
 	public TypeTerrain getTypeTerrain(int x, int y){
 		Terrain t = c.getTerrain(x, y);
-		return dt.determinerTerrain(t.getAltitude(),t.getHydrometrie(),t.getTemperature());
+		DetermineurTerrainEnonce dt = new DetermineurTerrainEnonce();
+		dt.determinerTerrain(t.getAltitude(),t.getHydrometrie(),t.getTemperature());
+		return t.getTypeTerrain(dt);
 	}
 
 }

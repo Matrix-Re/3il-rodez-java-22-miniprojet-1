@@ -3,6 +3,8 @@ package fr.ecole3il.rodez2023.perlin.terrain.elements;
 import fr.ecole3il.rodez2023.perlin.exception.MauvaiseValeurException;
 import fr.ecole3il.rodez2023.perlin.terrain.visualisation.DetermineurTerrain;
 
+import java.lang.reflect.Type;
+
 /**
  * Représente un terrain et ces caractéristiques.
  * Cette classe est utilisée pour définir les propriétés d'un terrain donné.
@@ -54,7 +56,7 @@ public class Terrain {
         return temperature;
     }
 
-    public void getTypeTerrain(DetermineurTerrain dt){
-        // visitor.visit(this);
+    public TypeTerrain getTypeTerrain(DetermineurTerrain dt){
+        return dt.determinerTerrain(altitude,hydrometrie,temperature);
     }
 }

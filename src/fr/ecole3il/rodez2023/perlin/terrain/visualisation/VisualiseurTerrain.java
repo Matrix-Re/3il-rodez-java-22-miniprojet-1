@@ -2,7 +2,6 @@ package fr.ecole3il.rodez2023.perlin.terrain.visualisation;
 
 import fr.ecole3il.rodez2023.perlin.terrain.carte.Carte;
 import fr.ecole3il.rodez2023.perlin.terrain.concrets.DetermineurTerrainEnonce;
-import fr.ecole3il.rodez2023.perlin.terrain.elements.Terrain;
 import fr.ecole3il.rodez2023.perlin.terrain.elements.TypeTerrain;
 
 /**
@@ -84,22 +83,22 @@ public abstract class VisualiseurTerrain {
      * @param y Coordonnée y sur la carte.
      * @return Température du terrain.
      */
-    public TempératureAffichee getTemperatureAffichee(int x, int y){
-        TempératureAffichee resultat = null;
+    public TemperatureAffichee getTemperatureAffichee(int x, int y){
+        TemperatureAffichee resultat = null;
 
         TypeTerrain typeT = getTypeTerrain(x, y);
 
         if (TypeTerrain.DESERT.equals(typeT) || TypeTerrain.MARAIS.equals(typeT))
         {
-            resultat = TempératureAffichee.Froid;
+            resultat = TemperatureAffichee.Froid;
         }
         if (TypeTerrain.PLAINE.equals(typeT) || TypeTerrain.FORET_CONIFÈRES.equals(typeT))
         {
-            resultat = TempératureAffichee.Tempéré;
+            resultat = TemperatureAffichee.Tempéré;
         }
         if (TypeTerrain.COLLINES.equals(typeT) || TypeTerrain.FORET_CONIFÈRES.equals(typeT))
         {
-            resultat = TempératureAffichee.Chaud;
+            resultat = TemperatureAffichee.Chaud;
         }
 
         return resultat;
