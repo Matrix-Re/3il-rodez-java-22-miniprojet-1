@@ -28,7 +28,7 @@ public class Terrain {
         this.temperature = temperature;
         if (hydrometrie < 0 || hydrometrie > 1 || temperature < 0 || temperature > 1 || altitude < -1 || altitude > 1){
             System.out.println(altitude + " " + hydrometrie + " " + temperature);
-            throw new MauvaiseValeurException("Les valeurs de hydrométrie, température et altitude doivent respecter les limites.");
+            //throw new MauvaiseValeurException("Les valeurs de hydrométrie, température et altitude doivent respecter les limites.");
         }
     }
 
